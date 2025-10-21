@@ -34,6 +34,8 @@ export function SignUpPage() {
       } else {
         if (role === 'vendor') {
           navigate('/vendor/onboarding');
+        } else if (role === 'affiliate') {
+          navigate('/affiliate/register');
         } else {
           navigate('/dashboard');
         }

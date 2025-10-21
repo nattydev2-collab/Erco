@@ -35,6 +35,14 @@ export function Header() {
               <Link to="/ai-recommend" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
                 AI Recommendations
               </Link>
+              <Link to="/affiliate/register" className="text-gray-700 hover:text-green-600 transition-colors font-medium">
+                Become an Affiliate
+              </Link>
+              {profile?.role === 'affiliate' && (
+                <Link to="/affiliate/dashboard" className="text-gray-700 hover:text-green-600 transition-colors font-medium">
+                  Affiliate Dashboard
+                </Link>
+              )}
               {profile?.role === 'vendor' && (
                 <Link to="/vendor/dashboard" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
                   Vendor Dashboard
@@ -136,6 +144,13 @@ export function Header() {
             >
               AI Recommendations
             </Link>
+            <Link
+              to="/affiliate/register"
+              className="block py-2 text-gray-700 hover:text-green-600 font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Become an Affiliate
+            </Link>
 
             {user ? (
               <>
@@ -160,6 +175,15 @@ export function Header() {
                 >
                   Orders
                 </Link>
+                {profile?.role === 'affiliate' && (
+                  <Link
+                    to="/affiliate/dashboard"
+                    className="block py-2 text-gray-700 hover:text-green-600 font-medium"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Affiliate Dashboard
+                  </Link>
+                )}
                 {profile?.role === 'vendor' && (
                   <Link
                     to="/vendor/dashboard"

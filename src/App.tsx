@@ -11,6 +11,8 @@ import { ProductsPage } from './pages/ProductsPage';
 import { Dashboard } from './pages/Dashboard';
 import { AIRecommendationPage } from './pages/AIRecommendationPage';
 import { CartPage } from './pages/CartPage';
+import { AffiliateRegistrationPage } from './pages/affiliate/AffiliateRegistrationPage';
+import { AffiliateDashboardPage } from './pages/affiliate/AffiliateDashboardPage';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
@@ -89,6 +91,60 @@ function AppRoutes() {
                 <div className="text-center">
                   <h2 className="text-2xl font-bold text-gray-900 mb-2">Profile Settings</h2>
                   <p className="text-gray-600">Manage your account settings</p>
+                </div>
+              </div>
+            </AppLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route path="/affiliate/register" element={<AffiliateRegistrationPage />} />
+      <Route
+        path="/affiliate/dashboard"
+        element={
+          <ProtectedRoute>
+            <AppLayout><AffiliateDashboardPage /></AppLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/affiliate/links"
+        element={
+          <ProtectedRoute>
+            <AppLayout>
+              <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                <div className="text-center">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">Referral Links</h2>
+                  <p className="text-gray-600">Create and manage your affiliate links</p>
+                </div>
+              </div>
+            </AppLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/affiliate/materials"
+        element={
+          <ProtectedRoute>
+            <AppLayout>
+              <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                <div className="text-center">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">Marketing Materials</h2>
+                  <p className="text-gray-600">Download banners and promotional content</p>
+                </div>
+              </div>
+            </AppLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/affiliate/payouts"
+        element={
+          <ProtectedRoute>
+            <AppLayout>
+              <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                <div className="text-center">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">Payouts</h2>
+                  <p className="text-gray-600">Request and track your affiliate payouts</p>
                 </div>
               </div>
             </AppLayout>
